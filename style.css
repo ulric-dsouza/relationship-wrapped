@@ -7,8 +7,8 @@
 body {
 
     font-family:
-    'Cormorant Garamond',
-    serif;
+    'Hind',
+    sans-serif;
 
     background:
         radial-gradient(circle at top left,
@@ -116,7 +116,7 @@ body {
 
 .date {
 
-    font-size: 1.5rem;
+    font-size: 4rem;
 
     letter-spacing: 2px;
 
@@ -272,9 +272,9 @@ body {
 }
 .cover-title {
 
-    font-size: 1.9rem;
+    font-size: 8rem;
 
-    opacity: 0.95;
+    font-weight: 700;
 
     margin-bottom: 10px;
 }
@@ -287,23 +287,23 @@ body {
 
     line-height: 0.85;
 
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .cover-love {
 
-    font-size: 6rem;
+    font-size: 8rem;
 
     line-height: 0.9;
 
-    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .cover-subtitle {
 
     margin-top: 35px;
 
-    font-size: 0.85rem;
+    font-size: 4rem;
 
     letter-spacing: 1px;
 
@@ -312,7 +312,7 @@ body {
 
 .counter-label {
 
-    font-size: 1.5rem;
+    font-size: 6rem;
 
     opacity: 0.8;
 
@@ -333,7 +333,7 @@ body {
 
 .counter-value {
 
-    font-size: clamp(4rem, 12vw, 7rem);
+    font-size: clamp(8rem, 12vw, 8rem);
 
     font-weight: 700;
 
@@ -342,7 +342,7 @@ body {
 
 .counter-label {
 
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(8rem, 4vw, 8rem);
 
     opacity: 0.85;
 }
@@ -351,14 +351,14 @@ body {
 
     margin-top: 50px;
 
-    font-size: 1.2rem;
+    font-size: 6rem;
 
     opacity: 0.9;
 }
 
 .page-heading {
 
-    font-size: 4rem;
+    font-size: 6rem;
 
     margin-bottom: 40px;
 
@@ -399,5 +399,5 @@ body {
 
     opacity: 0.6;
 
-    font-size: 1.1rem;
+    font-size: 6rem;
 }
