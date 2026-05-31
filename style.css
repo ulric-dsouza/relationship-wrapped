@@ -30,6 +30,9 @@ body {
 
     position: absolute;
 
+    top: 0;
+    left: 0;
+
     width: 100vw;
     height: 100vh;
 
@@ -43,12 +46,13 @@ body {
 
     text-align: left;
 
-    padding:
+    padding-top: 70px;
 
-        60px
-        30px
-        120px
-        30px;
+    padding-left: 24px;
+
+    padding-right: 24px;
+
+    padding-bottom: 120px;
 
     opacity: 0;
 
@@ -199,12 +203,12 @@ body {
 
     position: fixed;
 
-    top: 50%;
+    bottom: 35px;
+    top: auto;
+    transform: none;
 
-    transform: translateY(-50%);
-
-    width: 70px;
-    height: 70px;
+    width: 52px;
+    height: 52px;
 
     border-radius: 50%;
 
@@ -222,7 +226,7 @@ body {
 
     justify-content: center;
 
-    font-size: 40px;
+    font-size: 24px;
 
     cursor: pointer;
 
@@ -241,11 +245,11 @@ body {
 }
 
 .left {
-    left: 30px;
+    left: 24px;
 }
 
 .right {
-    right: 30px;
+    right: 24px;
 }
 
 @media (max-width: 768px) {
@@ -268,38 +272,42 @@ body {
 }
 .cover-title {
 
-    font-size: 2rem;
+    font-size: 1.9rem;
 
-    opacity: 0.8;
+    opacity: 0.95;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .cover-main {
 
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: 8rem;
 
-    font-weight: 800;
+    font-weight: 700;
 
-    line-height: 1;
+    line-height: 0.85;
+
+    margin-top: 10px;
 }
 
 .cover-love {
 
-    font-size: clamp(4rem, 12vw, 8rem);
+    font-size: 6rem;
 
-    font-weight: 800;
+    line-height: 0.9;
 
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .cover-subtitle {
 
-    margin-top: 40px;
+    margin-top: 35px;
 
-    opacity: 0.6;
+    font-size: 0.85rem;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+
+    opacity: 0.65;
 }
 
 .counter-label {
