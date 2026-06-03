@@ -12,15 +12,17 @@
     --glass-border: rgba(255, 255, 255, 0.15);
 }
 
-body {
+/* Force-locks the window frame to prevent mobile rubber-banding and scroll breaking */
+html, body {
     font-family: 'Manrope', sans-serif;
     background: radial-gradient(circle at top right, rgba(255, 126, 179, 0.15), transparent 40%),
                 radial-gradient(circle at bottom left, rgba(255, 117, 140, 0.15), transparent 40%),
                 linear-gradient(135deg, #12050a 0%, #2a121c 50%, #160a10 100%);
     color: #ffffff;
-    overflow: hidden; /* STRICTLY NO SCROLLING */
-    height: 100vh;
-    width: 100vw;
+    overflow: hidden; 
+    height: 100%;
+    width: 100%;
+    position: fixed; 
 }
 
 h1, h2, h3, .cover-main, .love-title {
@@ -31,14 +33,14 @@ h1, h2, h3, .cover-main, .love-title {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px 24px 80px 24px;
+    padding: 20px 24px 100px 24px; /* Generates bottom safety margin for nav arrows */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.6s ease;
@@ -187,18 +189,26 @@ h1, h2, h3, .cover-main, .love-title {
 /* Page 3: Stats Grid */
 .story-stats {
     width: 100%;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
 }
 
 .stat-card {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 20px 15px;
+    border-radius: 16px;
+    padding: 12px 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 126, 179, 0.4);
 }
 
 .stat-number {
@@ -219,7 +229,7 @@ h1, h2, h3, .cover-main, .love-title {
 .chart-section {
     width: 100%;
     max-width: 800px;
-    height: 40vh; /* Limits height to fit screen */
+    height: 40vh;
     max-height: 350px;
     margin: 10px auto;
     background: var(--glass-bg);
@@ -243,7 +253,7 @@ h1, h2, h3, .cover-main, .love-title {
     margin-bottom: 10px;
 }
 
-/* Final Page Stats */
+/* Final Page Stats (Desktop Defaults) */
 .love-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
     line-height: 1.2;
@@ -338,16 +348,6 @@ h1, h2, h3, .cover-main, .love-title {
 .left { left: 30px; }
 .right { right: 30px; }
 
-@media (max-width: 768px) {
-    .nav-btn {
-        width: 48px;
-        height: 48px;
-        bottom: 20px;
-    }
-    .left { left: 20px; }
-    .right { right: 20px; }
-}
-
 /* =====================================
    STAGGERED ENTRANCE ANIMATIONS
    ===================================== */
@@ -356,7 +356,6 @@ h1, h2, h3, .cover-main, .love-title {
     transform: translateY(20px);
 }
 
-/* Only run animations when the slide is active */
 .slide.active .animate-item {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
@@ -368,6 +367,7 @@ h1, h2, h3, .cover-main, .love-title {
 .slide.active .delay-5 { animation-delay: 0.9s; }
 .slide.active .delay-6 { animation-delay: 1.1s; }
 .slide.active .delay-7 { animation-delay: 1.3s; }
+.slide.active .delay-8 { animation-delay: 1.5s; }
 
 @keyframes fadeInUp {
     0% {
@@ -381,76 +381,115 @@ h1, h2, h3, .cover-main, .love-title {
 }
 
 /* =====================================
-   PET NAMES PAGE STYLES
+   PET NAMES PAGE STYLES (DESKTOP)
    ===================================== */
+.pet-heading {
+    font-size: clamp(1.4rem, 4vw, 2.4rem) !important;
+    line-height: 1.4;
+    margin-bottom: 20px !important;
+}
+
+.pet-heading span {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
 .pet-names-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 20px;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .pet-column {
-    padding: 20px 25px;
+    padding: 15px 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
+.pet-column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
 .pet-column-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    color: var(--primary-pink);
-    margin-bottom: 15px;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: #ffffff;
     font-weight: 700;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 8px;
+}
+
+.pet-total-badge {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    padding: 3px 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 117, 140, 0.2);
+    letter-spacing: 0.5px;
 }
 
 .pet-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+}
+
+.pet-row-container {
+    position: relative;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.pet-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 126, 179, 0.15), rgba(255, 117, 140, 0.25));
+    border-right: 2px solid var(--primary-pink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide.active .pet-bar-fill {
+    transform: scaleX(1);
 }
 
 .pet-row {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    opacity: 0.9;
+    width: 100%;
+    padding: 0 12px;
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    font-weight: 500;
 }
 
 .pet-count {
     font-weight: 800;
-    color: #ffffff;
-    background: rgba(255, 126, 179, 0.2);
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    border: 1px solid rgba(255, 126, 179, 0.2);
-    text-shadow: 0 0 10px rgba(255, 126, 179, 0.4);
-}
-
-/* Mobile responsive fallback to keep it stacked but completely visible */
-@media (max-width: 600px) {
-    .pet-names-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-    .pet-column {
-        padding: 12px 15px;
-    }
-    .pet-column-title {
-        margin-bottom: 8px;
-        padding-bottom: 4px;
-    }
-    .pet-list {
-        gap: 4px;
-    }
+    color: var(--primary-pink);
+    font-size: 0.85rem;
 }
 
 /* =====================================
@@ -464,7 +503,7 @@ h1, h2, h3, .cover-main, .love-title {
     max-width: 800px;
     margin: 24px auto 0 auto;
     padding: 18px 30px;
-    border-color: rgba(255, 126, 179, 0.25); /* Gives it a slight highlight focus */
+    border-color: rgba(255, 126, 179, 0.25);
 }
 
 .media-stat {
@@ -496,18 +535,55 @@ h1, h2, h3, .cover-main, .love-title {
     background: var(--glass-border);
 }
 
-@media (max-width: 600px) {
-    .shared-media-panel {
-        margin-top: 16px;
-        padding: 12px 15px;
-    }
-    .media-divider {
-        height: 35px;
-    }
+/* Styling for the new cute line */
+.emoji-subtitle {
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    opacity: 0.85;
+    margin-top: -20px;
+    margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
 }
 
 /* =====================================
-   GRAND FINALE PAGE STYLES
+   EMOJI MINI BAR GRAPH ENGINE
+   ===================================== */
+.emoji-row-container {
+    position: relative;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.emoji-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 126, 179, 0.08), rgba(255, 117, 140, 0.18));
+    border-right: 2px solid rgba(255, 126, 179, 0.5);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.slide.active .emoji-bar-fill {
+    transform: scaleX(1);
+}
+
+.emoji-row {
+    position: relative;
+    z-index: 2;
+    padding: 0 16px;
+}
+
+/* =====================================
+   GRAND FINALE PAGE STYLES (DESKTOP)
    ===================================== */
 .finale-stats-grid {
     display: flex;
@@ -561,17 +637,235 @@ h1, h2, h3, .cover-main, .love-title {
     text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Perfect alignment tuning for standard mobile dimensions */
+/* =====================================
+   MASTER MOBILE VIEW CORRECTIONS
+   ==================================== */
 @media (max-width: 768px) {
-    .finale-stats-grid {
-        gap: 10px;
+    /* Responsive Arrow Adjustments */
+    .nav-btn {
+        width: 44px;
+        height: 44px;
+        bottom: 24px;
+        font-size: 16px;
     }
+    .left { left: 16px; }
+    .right { right: 16px; }
+
+    /* Headings & Subtitles */
+    .page-heading, .pet-heading {
+        font-size: 1.15rem !important;
+        margin-bottom: 6px !important;
+        line-height: 1.3;
+    }
+    .emoji-subtitle {
+        margin-top: -2px;
+        margin-bottom: 12px;
+        font-size: 0.8rem;
+    }
+    
+    /* Grid Layout Transformations to Full-Width Vertical Stacks */
+    .pet-names-grid, .emojis-grid {
+        grid-template-columns: 1fr; 
+        gap: 6px;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    /* Card Panels Padding */
+    .pet-column, .emoji-column {
+        padding: 8px 12px;
+        width: 100%;
+    }
+
+    /* Headers inside cards */
+    .pet-column-header, .emoji-column-title {
+        margin-bottom: 6px;
+        padding-bottom: 4px;
+    }
+    
+    .pet-column-title, .emoji-column-title {
+        font-size: 0.85rem;
+    }
+    
+    .pet-total-badge {
+        font-size: 0.65rem;
+        padding: 1px 6px;
+    }
+
+    /* Tight row structures */
+    .pet-list, .emoji-list {
+        gap: 3px;
+    }
+
+    /* Row adjustments for Pet Names Bars */
+    .pet-row-container {
+        height: 18px; /* Slightly compacted to safely sit inside standard mobile screens */
+    }
+    .pet-row {
+        padding: 0 8px;
+        font-size: 0.75rem;
+    }
+    .pet-count {
+        font-size: 0.7rem;
+    }
+
+    /* Bottom Shared Media Panel Adjustments */
+    .shared-media-panel {
+        width: 100%;
+        max-width: 360px;
+        margin: 10px auto 0 auto;
+        padding: 8px 14px;
+    }
+    .media-count {
+        font-size: 1.3rem;
+    }
+    .media-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+    .media-divider {
+        height: 25px;
+    }
+    
+    /* Row adjustments for Emojis on Mobile */
+    .emoji-row-container {
+        height: 22px;
+        border-radius: 6px;
+    }
+    .emoji-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+    }
+    .emoji-char {
+        font-size: 1.1rem;
+    }
+    .emoji-count {
+        font-size: 0.75rem;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    /* =====================================
+       GRAND FINALE MOBILE OPTIMIZATION
+       ===================================== */
+.finale-stats-grid {
+        display: flex !important;
+        flex-direction: column !important; 
+        flex-wrap: nowrap !important; /* Forces all 5 cards into a single vertical line */
+        gap: 5px !important; /* Tightens the spacing between cards */
+        width: 100% !important;
+        max-width: 360px !important;
+        margin: 0 auto !important;
+    }
+
     .finale-card {
-        flex: 1 1 calc(50% - 10px);
-        min-width: 130px;
-        padding: 12px 10px;
+        display: flex !important;
+        flex: none !important; /* Overrides desktop layout width calculations */
+        flex-direction: column-reverse !important; /* Keeps Label on top, Number on bottom */
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 4px 12px !important; /* Reduces vertical card padding */
+        width: 100% !important;
+        height: 48px !important; /* Low-profile height to make all 5 cards fit perfectly */
+        border-radius: 12px !important;
+        gap: 2px !important; /* Tighter internal space between label and number */
     }
+
+    .finale-number {
+        font-size: 1.15rem !important; /* Clean, modern size for the numbers */
+        font-weight: 800 !important;
+        text-shadow: 0 0 10px rgba(255, 126, 179, 0.2) !important;
+        line-height: 1 !important;
+    }
+
+    .finale-label {
+        font-size: 0.65rem !important; /* Clean size for the top descriptions */
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        opacity: 0.75 !important;
+        margin-top: 0 !important;
+        line-height: 1 !important;
+    }
+
     .finale-quote {
-        margin-top: 35px;
+        font-size: 1.25rem !important; 
+        margin-top: 16px !important; /* Brings the quote closer to the cards */
+        line-height: 1.4 !important;
     }
+    
+/* =====================================
+   DUAL CHAT THREAD STYLES
+   ===================================== */
+.love-chat-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 25px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.love-chat-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.megan-row {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.ulric-row {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.text-right {
+    margin-right: 15px;
+    margin-left: 0 !important;
+}
+
+.love-bubble-pink {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+    border-radius: 18px 18px 18px 4px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 117, 140, 0.15);
+    max-width: 85%;
+    display: inline-block;
+}
+
+.love-bubble-glass {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    padding: 12px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 18px 18px 4px 18px;
+    color: white;
+    max-width: 85%;
+    display: inline-block;
+}
+
+.consecutive-bubble {
+    margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+    .love-chat-container {
+        margin-bottom: 15px;
+        gap: 8px;
+    }
+    .love-bubble-pink, .love-bubble-glass {
+        padding: 10px 16px;
+    }
+}
 }

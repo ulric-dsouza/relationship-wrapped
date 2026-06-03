@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 <div class="progress-container">
     <div class="progress-bar" id="progress"></div>
@@ -45,9 +46,14 @@
                 <span class="counter-value" id="minutes">0</span>
                 <span class="counter-label-small"> Minutes</span>
             </div>
+            <!-- NEW SECONDS ROW -->
+            <div class="counter-row animate-item delay-7">
+                <span class="counter-value" id="seconds">0</span>
+                <span class="counter-label-small"> Seconds</span>
+            </div>
         </div>
     </div>
-    <div class="counter-footer animate-item delay-7">since our story began ❤️</div>
+    <div class="counter-footer animate-item delay-8">since our story began ❤️</div>
 </div>
 
 <!-- PAGE 2: The First Message -->
@@ -64,21 +70,25 @@
 <div class="slide">
     <div class="page-heading animate-item delay-1">And since then...</div>
     <div class="story-stats">
+        <!-- 1. Days -->
         <div class="stat-card animate-item delay-2">
-            <div class="stat-number">264,694</div>
-            <div class="stat-label">Messages</div>
-        </div>
-        <div class="stat-card animate-item delay-3">
-            <div class="stat-number">531</div>
+            <div class="stat-number">539</div>
             <div class="stat-label">Days Talking</div>
         </div>
-        <div class="stat-card animate-item delay-4">
-            <div class="stat-number">143,359</div>
-            <div class="stat-label">From Ulric</div>
+        <!-- 2. Total Messages -->
+        <div class="stat-card animate-item delay-3">
+            <div class="stat-number">276,004</div>
+            <div class="stat-label">Total Messages</div>
         </div>
+        <!-- 3. From Ulric -->
+        <div class="stat-card animate-item delay-4">
+            <div class="stat-number">149,429</div>
+            <div class="stat-label">messages from Ulric</div>
+        </div>
+        <!-- 4. From Megan -->
         <div class="stat-card animate-item delay-5">
-            <div class="stat-number">121,335</div>
-            <div class="stat-label">From Megan</div>
+            <div class="stat-number">126,575</div>
+            <div class="stat-label">messages from Megan</div>
         </div>
     </div>
 </div>
@@ -89,9 +99,10 @@
     <div class="chart-section animate-item delay-2">
         <canvas id="monthlyChart"></canvas>
     </div>
+    <!-- ROMANTIC REPHRASE -->
     <div class="chart-caption animate-item delay-3">
-        After we started dating on 7 September 2025 ❤️ <br>
-        our conversations somehow became even more frequent.
+        On 7 September 2025, we officially became "um." ❤️<br>
+        You’d think after 9 whole months of talking every single day we would have run out of things to say—instead, it felt like we were just getting started.
     </div>
 </div>
 
@@ -106,108 +117,212 @@
     </div>
 </div>
 
-<!-- PAGE 6: I Love You Stats -->
+
+<!-- PAGE 6: The First "I Love You" -->
 <div class="slide">
     <div class="love-title animate-item delay-1">The First "I Love You" ❤️</div>
-    <div class="love-date animate-item delay-2">9 January 2025</div>
-    <div class="love-chat animate-item delay-3">
-        <div class="love-sender">Megan</div>
-        <div class="love-bubble">and he replied and I love you</div>
+    <div class="love-date animate-item delay-2">30 September 2025</div>
+    
+    <!-- UPDATED: DUAL CHAT CONTAINER -->
+    <div class="love-chat-container animate-item delay-3">
+        <div class="love-chat-row megan-row">
+            <div class="love-sender">Megan</div>
+            <div class="love-bubble-pink">I hope u know how much I luv u</div>
+        </div>
+        <div class="love-chat-row ulric-row">
+            <div class="love-sender text-right">Ulric</div>
+            <div class="love-bubble-glass">I love you too Megan</div>
+            <div class="love-bubble-glass consecutive-bubble">I really do</div>
+        </div>
     </div>
+
     <div class="since-then animate-item delay-4">Since then...</div>
-    <div class="love-count animate-item delay-5">1,797</div>
+    <div class="love-count animate-item delay-5">2,040</div>
     <div class="love-count-label animate-item delay-6">times we've said "I love you"</div>
     
     <div class="love-breakdown animate-item delay-7">
         <div class="love-person">
-            <div class="love-person-number">927</div>
+            <div class="love-person-number">1066</div>
             <div class="love-person-label">❤️ Ulric</div>
         </div>
         <div class="love-person">
-            <div class="love-person-number">870</div>
+            <div class="love-person-number">974</div>
             <div class="love-person-label">❤️ Megan</div>
         </div>
     </div>
 </div>
 
-<!-- PAGE 7: PET NAMES -->
+
+<!-- UPDATED PAGE: PET NAMES CHART WITH NEW COUNTS -->
 <div class="slide">
-    <div class="page-heading animate-item delay-1">What We Call Each Other... 😂</div>
+    <div class="page-heading pet-heading animate-item delay-1">
+        Love was not the only word we used to express our love, <br><span>we also used...</span>
+    </div>
     
     <div class="pet-names-grid">
-        <!-- ULRIC TO MEGAN -->
+        <!-- NICKNAMES BY ULRIC -->
         <div class="pet-column glass-panel animate-item delay-2">
-            <div class="pet-column-title">Ulric ➔ Megan</div>
+            <div class="pet-column-header">
+                <span class="pet-column-title">Ulric's Nicknames for Her</span>
+                <span class="pet-total-badge">3,818 Total</span>
+            </div>
             <div class="pet-list">
-                <div class="pet-row"><span>baby</span><span class="pet-count">1,980</span></div>
-                <div class="pet-row"><span>megu</span><span class="pet-count">498</span></div>
-                <div class="pet-row"><span>princess</span><span class="pet-count">341</span></div>
-                <div class="pet-row"><span>babu</span><span class="pet-count">283</span></div>
-                <div class="pet-row"><span>loser</span><span class="pet-count">229</span></div>
-                <div class="pet-row"><span>dumpling</span><span class="pet-count">54</span></div>
-                <div class="pet-row"><span>dumbass</span><span class="pet-count">45</span></div>
-                <div class="pet-row"><span>pumpkin</span><span class="pet-count">9</span></div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 100%;"></div>
+                    <div class="pet-row"><span>baby</span><span class="pet-count">2,188</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 25%;"></div>
+                    <div class="pet-row"><span>megu</span><span class="pet-count">550</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 17%;"></div>
+                    <div class="pet-row"><span>babu</span><span class="pet-count">379</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 16%;"></div>
+                    <div class="pet-row"><span>princess</span><span class="pet-count">353</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 11%;"></div>
+                    <div class="pet-row"><span>loser</span><span class="pet-count">234</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 3%;"></div>
+                    <div class="pet-row"><span>dumpling</span><span class="pet-count">58</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 2%;"></div>
+                    <div class="pet-row"><span>dumbass</span><span class="pet-count">46</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 1%;"></div>
+                    <div class="pet-row"><span>pumpkin</span><span class="pet-count">10</span></div>
+                </div>
             </div>
         </div>
 
-        <!-- MEGAN TO ULRIC -->
+        <!-- NICKNAMES BY MEGAN -->
         <div class="pet-column glass-panel animate-item delay-3">
-            <div class="pet-column-title">Megan ➔ Ulric</div>
+            <div class="pet-column-header">
+                <span class="pet-column-title">Megan's Nicknames for Him</span>
+                <span class="pet-total-badge">3,039 Total</span>
+            </div>
             <div class="pet-list">
-                <div class="pet-row"><span>baby</span><span class="pet-count">2,123</span></div>
-                <div class="pet-row"><span>niggu</span><span class="pet-count">171</span></div>
-                <div class="pet-row"><span>retard</span><span class="pet-count">136</span></div>
-                <div class="pet-row"><span>babu</span><span class="pet-count">110</span></div>
-                <div class="pet-row"><span>urlic</span><span class="pet-count">70</span></div>
-                <div class="pet-row"><span>pingu</span><span class="pet-count">37</span></div>
-                <div class="pet-row"><span>garlic</span><span class="pet-count">16</span></div>
-                <div class="pet-row"><span>garlic bread</span><span class="pet-count">8</span></div>
-                <div class="pet-row"><span>chiku</span><span class="pet-count">6</span></div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 100%;"></div>
+                    <div class="pet-row"><span>baby</span><span class="pet-count">2,332</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 9%;"></div>
+                    <div class="pet-row"><span>niggu</span><span class="pet-count">213</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 8%;"></div>
+                    <div class="pet-row"><span>babu</span><span class="pet-count">188</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 6%;"></div>
+                    <div class="pet-row"><span>retard</span><span class="pet-count">138</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 3%;"></div>
+                    <div class="pet-row"><span>urlic</span><span class="pet-count">70</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 2%;"></div>
+                    <div class="pet-row"><span>pingu</span><span class="pet-count">48</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 1%;"></div>
+                    <div class="pet-row"><span>garlic</span><span class="pet-count">22</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 0.6%;"></div>
+                    <div class="pet-row"><span>chiku</span><span class="pet-count">15</span></div>
+                </div>
+                <div class="pet-row-container">
+                    <div class="pet-bar-fill" style="width: 0.5%;"></div>
+                    <div class="pet-row"><span>garlic bread</span><span class="pet-count">13</span></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-<!-- PAGE 8: SHARED EMOJIS, PHOTOS, REELS -->
+<!-- UPDATED PAGE: TOP EMOJIS MICRO-CHART & SHARED MEDIA -->
 <div class="slide">
     <div class="page-heading animate-item delay-1">Our Most Used Emojis 💬</div>
     
+    <div class="emoji-subtitle animate-item delay-2">
+        Whether we're laughing, crying, or spamming reels... we do it together. ❤️
+    </div>
+    
     <div class="emojis-grid">
         <!-- ULRIC EMOJIS -->
-        <div class="emoji-column glass-panel animate-item delay-2">
+        <div class="emoji-column glass-panel animate-item delay-3">
             <div class="emoji-column-title">Ulric</div>
             <div class="emoji-list">
-                <div class="emoji-row"><span class="emoji-char">😂</span><span class="emoji-count">22,214</span></div>
-                <div class="emoji-row"><span class="emoji-char">😭</span><span class="emoji-count">20,283</span></div>
-                <div class="emoji-row"><span class="emoji-char">💀</span><span class="emoji-count">3,561</span></div>
-                <div class="emoji-row"><span class="emoji-char">😘</span><span class="emoji-count">1,625</span></div>
-                <div class="emoji-row"><span class="emoji-char">😒</span><span class="emoji-count">1,168</span></div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 96%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😂</span><span class="emoji-count">23,249</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 90%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😭</span><span class="emoji-count">21,852</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 16%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">💀</span><span class="emoji-count">3,842</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 7%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😘</span><span class="emoji-count">1,666</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 5%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😒</span><span class="emoji-count">1,187</span></div>
+                </div>
             </div>
         </div>
 
         <!-- MEGAN EMOJIS -->
-        <div class="emoji-column glass-panel animate-item delay-3">
+        <div class="emoji-column glass-panel animate-item delay-4">
             <div class="emoji-column-title">Megan</div>
             <div class="emoji-list">
-                <div class="emoji-row"><span class="emoji-char">😭</span><span class="emoji-count">22,791</span></div>
-                <div class="emoji-row"><span class="emoji-char">😂</span><span class="emoji-count">14,598</span></div>
-                <div class="emoji-row"><span class="emoji-char">💀</span><span class="emoji-count">2,822</span></div>
-                <div class="emoji-row"><span class="emoji-char">🤣</span><span class="emoji-count">2,408</span></div>
-                <div class="emoji-row"><span class="emoji-char">😍</span><span class="emoji-count">922</span></div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 100%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😭</span><span class="emoji-count">24,234</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 64%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😂</span><span class="emoji-count">15,501</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 12%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">💀</span><span class="emoji-count">2,993</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 11%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">🤣</span><span class="emoji-count">2,588</span></div>
+                </div>
+                <div class="emoji-row-container">
+                    <div class="emoji-bar-fill" style="width: 4%;"></div>
+                    <div class="emoji-row"><span class="emoji-char">😍</span><span class="emoji-count">925</span></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- NEW: SHARED MEDIA ROW -->
-    <div class="shared-media-panel glass-panel animate-item delay-4">
+    <!-- SHARED MEDIA PANELS -->
+    <div class="shared-media-panel glass-panel animate-item delay-5">
         <div class="media-stat">
-            <span class="media-count">769</span>
+            <span class="media-count">792</span>
             <span class="media-label">Total Photos Shared 📸</span>
         </div>
         <div class="media-divider"></div>
         <div class="media-stat">
-            <span class="media-count">1,419</span>
+            <span class="media-count">1,443</span>
             <span class="media-label">Shared Posts & Reels 🎬</span>
         </div>
     </div>
@@ -224,7 +339,7 @@
             <span class="finale-label">Messages Shared</span>
         </div>
         <div class="finale-card glass-panel animate-item delay-3">
-            <span class="finale-number">106,946</span>
+            <span class="finale-number">107,845</span>
             <span class="finale-label">Emojis Sent</span>
         </div>
         <div class="finale-card glass-panel animate-item delay-4">

@@ -48,6 +48,11 @@ function updateCounter() {
     }
 
     const diff = now - startDate;
+    
+    // Calculate total seconds and get the remainder
+    const totalSeconds = Math.floor(diff / 1000);
+    const seconds = totalSeconds % 60;
+
     const totalMinutes = Math.floor(diff / 60000);
     const hours = Math.floor((totalMinutes % (24 * 60)) / 60);
     const minutes = totalMinutes % 60;
@@ -57,6 +62,7 @@ function updateCounter() {
     document.getElementById('days').textContent = days;
     document.getElementById('hours').textContent = hours;
     document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds; // Push to UI
 }
 
 setInterval(updateCounter, 1000);
@@ -75,7 +81,7 @@ if(monthlyCtx){
             labels: ['Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26'],
             datasets: [{
                 label: 'Messages',
-                data: [142, 0, 0, 2566, 6253, 2074, 4467, 6474, 2496, 4046, 5068, 9523, 23500, 15201, 15676, 24423, 20660, 27881, 32633, 38216, 23395],
+                data: [142, 0, 0, 2566, 6253, 2074, 4467, 6474, 2496, 4046, 5068, 9523, 23500, 15201, 15676, 24423, 20660, 27881, 32633, 38216, 34705],
                 borderColor: '#FF7EB3',
                 borderWidth: 4,
                 tension: 0.4,
@@ -86,7 +92,7 @@ if(monthlyCtx){
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false, // Important for forcing chart to fit inside CSS defined height
+            maintainAspectRatio: false,
             plugins: {
                 legend: { display: false }
             },
@@ -100,7 +106,34 @@ if(monthlyCtx){
                     grid: { color: 'rgba(255,255,255,0.05)' }
                 }
             }
-        }
+        },
+        // NEW: Custom plugin to draw the vertical "Dating Phase" milestone line
+        plugins: [{
+            id: 'verticalMilestoneLine',
+            beforeDraw: (chart) => {
+                const ctx = chart.ctx;
+                const xAxis = chart.scales.x;
+                const yAxis = chart.scales.y;
+                
+                // Index 12 corresponds to 'Sep 25' in the labels array
+                const xPixel = xAxis.getPixelForValue(12); 
+                
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(xPixel, yAxis.top);
+                ctx.lineTo(xPixel, yAxis.bottom);
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'rgba(255, 117, 140, 0.65)'; // Soft pink highlight line
+                ctx.setLineDash([6, 4]); // Creates a clean, elegant dashed effect
+                ctx.stroke();
+                
+                // Text label inside the chart area
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+                ctx.font = 'italic 11px "Manrope", sans-serif';
+                ctx.fillText('Dating Phase Begins ❤️', xPixel + 8, yAxis.top + 20);
+                ctx.restore();
+            }
+        }]
     });
 }
 
