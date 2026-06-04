@@ -652,7 +652,7 @@ h1, h2, h3, .cover-main, .love-title {
     .right { right: 16px; }
 
     /* Headings & Subtitles */
-    .page-heading, .pet-heading {
+    .page-heading, .pet-heading .love-title{
         font-size: 1.15rem !important;
         margin-bottom: 6px !important;
         line-height: 1.3;
